@@ -16,16 +16,5 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 
-//URLとControllerやActionを紐付ける機能を何といいますか？
-//Routing機能
-
-//あなたが考える、group化をすることのメリットを考えてみてください。
-//管理しやすくなる。
-
-
-
-//【応用】 前章でAdmin/ProfileControllerを作成し、add Action, edit Actionを追加しました。web.phpを編集して、admin/profile/create にアクセスしたら ProfileController の
-//add Action に、admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当てるように設定してください。
-
 Route::get('admin/profile/create','Admin\ProfileController@add');
 Route::get('admin/profile/edit', 'Admin\ProfileController@edit');
