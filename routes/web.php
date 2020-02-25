@@ -21,3 +21,14 @@ Route::get('admin/profile/edit', 'Admin\ProfileController@edit');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
+=======
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> ce177cebbc2233acfb4ac223ac151e525fe44ddd
