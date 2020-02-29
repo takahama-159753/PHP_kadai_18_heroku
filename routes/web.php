@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('admin/profile/create','Admin\ProfileController@add');   
      Route::post('admin/profile/create','Admin\ProfileController@create');
-　　 Route::post('admin/profile/edit', 'Admin\ProfileController@update');//←はPHP/Laravel 13の6番です。
+     Route::post('admin/profile/edit', 'Admin\ProfileController@update');//←はPHP/Laravel 13の6番です。
 });
 
 

@@ -1,14 +1,3 @@
-<DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <meta http=equiv="X-UA-Compatible" "content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-            <title>MyNews</title>
-    </head>
-</html>
-
 @extends('layouts.admin')
 @section('title', 'ニュースの新規作成')
 
@@ -17,8 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ニュース新規作成</h2>
-                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">//下記はPHP/Laravel 13の4番です。(<form action=”この部分”>ってやつです。
-
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
