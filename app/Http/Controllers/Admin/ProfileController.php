@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,10 +10,17 @@ class ProfileController extends Controller
     {
         return view('admin.profile.create');
     }
-
-    public function create()
+    
+    public function create(Request $request)
     {
-        return redirect('admin/profile/create');
+      $this->validate($request,　Profile::$rules);
+      $Profile = new Profile;
+      $form = $request->all();
+      unset($form['_token']);
+      $Profile->fill($form);
+      $Profile->save();
+      return redirect('admin.profile.create');
+
     }
 
     public function edit()
@@ -29,30 +35,3 @@ class ProfileController extends Controller
     
 }
 
-class ProfileController extends Controller
-{
-  public function add()
-  {
-      return view('admin.profile.create');
-  }
-  public function create(Request $request)
-  {
-     
-      $this->validate($request, News::$rules);
-      $news = new News;
-      $form = $request->all();
-      
-      if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $news->image_path = basename($path);
-      } else {
-          $news->image_path = null;
-      }
-
-      unset($form['_token']);
-      unset($form['image']);
-      $news->fill($form);
-      $news->save();
-      return redirect('admin.profile.create');
-  }
-}
