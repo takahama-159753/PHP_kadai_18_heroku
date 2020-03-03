@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        '森本', 'morimoto@tech.com', 'Hash::make(“pass”)',
     ];
 
     /**
