@@ -15,7 +15,7 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
-      $this->validate($request,　Profile::$rules);
+      $this->validate($request,Profile::$rules);
       $Profile = new Profile;
       $form = $request->all();
       unset($form['_token']);
