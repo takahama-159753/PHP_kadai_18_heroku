@@ -21,7 +21,7 @@ class ProfileController extends Controller
       unset($form['_token']);
       $Profile->fill($form);
       $Profile->save();
-      return redirect('admin.profile.create');
+      return redirect('admin/profile/create');
 
     }
 
