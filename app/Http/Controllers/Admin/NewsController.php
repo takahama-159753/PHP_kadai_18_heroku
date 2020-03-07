@@ -52,3 +52,31 @@ class NewsController extends Controller
   }
 
 }
+
+
+
+public function edit(Request $request)
+  {
+    
+      $news = News::find($request->id);
+      if (empty($news)) {
+        abort(404);    
+      }
+      return view('admin.news.edit', ['news_form' => $news]);
+  }
+
+public function update(Request $request)
+  {
+      
+      $this->validate($request, News::$rules);
+      
+      $news = News::find($request->id);
+      
+      $news_form = $request->all();
+      unset($news_form['_token']);
+
+      $news->fill($news_form)->save();
+
+      return redirect('admin/news');
+  }
+}
