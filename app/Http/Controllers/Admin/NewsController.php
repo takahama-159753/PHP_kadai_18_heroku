@@ -11,10 +11,9 @@ class NewsController extends Controller
       return view('admin.news.create');
      }
 
- public function create(Request $request)
+public function create(Request $request)
      {
       $this->validate($request, News::$rules);
-
       $news = new News;
       $form = $request->all();
 
@@ -33,7 +32,7 @@ class NewsController extends Controller
       return redirect('admin/news/create');
       }
 
-  public function index(Request $request)
+public function index(Request $request)
      {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
@@ -77,4 +76,4 @@ public function update(Request $request)
 
       return redirect('admin/news');
       }
-}
+     }
