@@ -49,7 +49,7 @@ class ProfileController extends Controller
 
     public function update()
     {
-       // Validationをかける
+       
       $this->validate($request, profile::$rules);
       
       $profile = profile::find($request->id);
