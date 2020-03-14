@@ -6,12 +6,12 @@ use App\News;
 
 class NewsController extends Controller
      {
-  public function add()
+ public function add()
      {
       return view('admin.news.create');
      }
 
-public function create(Request $request)
+ public function create(Request $request)
      {
       $this->validate($request, News::$rules);
       $news = new News;
@@ -32,7 +32,7 @@ public function create(Request $request)
       return redirect('admin/news/create');
       }
 
-public function index(Request $request)
+ public function index(Request $request)
      {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
@@ -54,7 +54,7 @@ public function index(Request $request)
       return view('admin.news.edit', ['news_form' => $news]);
       }
   
-     public function update(Request $request)
+  public function update(Request $request)
       {
     
       $this->validate($request, News::$rules);
