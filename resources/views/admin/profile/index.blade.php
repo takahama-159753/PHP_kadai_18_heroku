@@ -30,7 +30,7 @@
 </div>
 
 <div class="row">
-<div class="admin-news col-md-12 mx-auto">
+<div class="admin-profile col-md-12 mx-auto">
 <div class="row">
 <table class="table table-dark">
 <thead>
@@ -43,14 +43,17 @@
 </thead>
 
 <tbody>
-@foreach($posts as $news)
+@foreach($posts as $profile)
 <tr>
-<th>{{ $news->id }}</th>
-<td>{{ str_limit($news->title, 100) }}</td>
-<td>{{ str_limit($news->body, 250) }}</td>
+<th>{{ $profile->id }}</th>
+<td>{{ str_limit($profile->title, 100) }}</td>
+<td>{{ str_limit($profile->body, 250) }}</td>
 <td>
 <div>
-<a href="{{ action('Admin\profileController@edit', ['id' => $news->id]) }}">編集</a>
+<a href="{{ action('Admin\profileController@edit', ['id' => $profile->id]) }}">編集</a>
+</div>
+<div>
+<a href="{{ action('Admin\profileController@delete', ['id' => $news->id]) }}">削除</a>
 </div>
 </td>
 </tr>

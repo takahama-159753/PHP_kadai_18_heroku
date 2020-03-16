@@ -39,7 +39,6 @@ class ProfileController extends Controller
       
      public function edit()
     {
-        // profile Modelからデータを取得する
       $profile = profile::find($request->id);
       if (empty($profile)) {
         abort(404);    
@@ -49,9 +48,7 @@ class ProfileController extends Controller
 
     public function update()
     {
-       
       $this->validate($request, profile::$rules);
-      
       $profile = profile::find($request->id);
       
       $profile_form = $request->all();
@@ -69,5 +66,13 @@ class ProfileController extends Controller
         return redirect('admin/profile/edit');
     }
     
-}
+public function delete(Request $request)
+  {
+      
+      $profile = profile::find($request->id);
+      $profile->delete();
+      return redirect('admin/profile/');
+  }  
 
+
+}
