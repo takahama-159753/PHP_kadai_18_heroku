@@ -27,7 +27,7 @@ class ProfileController extends Controller
 
     }
     public function index(Request $request)
-  {
+    {
       $cond_title = $request->cond_name;
       if ($cond_name != '') {
           $posts = profile::where('name', $cond_name)->get();
@@ -35,9 +35,9 @@ class ProfileController extends Controller
           $posts = profile::all();
       }
       return view('admin.profile.index', ['posts' => $posts, 'cond_name' => $cond_name]);
-  }
+}
       
-     public function edit()
+     public function edit(Request $request)
     {
       $profile = profile::find($request->id);
       if (empty($profile)) {
@@ -46,7 +46,7 @@ class ProfileController extends Controller
         return view('admin.profile.edit', ['profile_form' => $profile]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
     $this->validate($request, Profile::$rules);
         

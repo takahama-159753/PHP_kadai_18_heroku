@@ -17,32 +17,32 @@
 <div class="form-group row">
 <label class="col-md-2" for="name">氏名(name)</label>
 <div class="col-md-10">
- <input type="text" class="form-control" name="name" value=" {{ $profiles_form->name }}">
+ <input type="text" class="form-control" name="name" value=" {{ $profile_form->name }}">
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-2" for="gender">性別(gender)</label>
 <div class="col-md-10">
-<input type="text" class="form-control" name="gender" value=" {{ $profiles_form->gender }}">
+<input type="text" class="form-control" name="gender" value=" {{ $profile_form->gender }}">
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-2" for="hobby">趣味(hobby)</label>
 <div class="col-md-10">
-<input type="text" class="form-control" name="hobby" value=" {{ $profiles_form->hobby }}">
+<input type="text" class="form-control" name="hobby" value=" {{ $profile_form->hobby }}">
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-2" for="introduction">自己紹介欄(introduction)</label>
 <div class="col-md-10">
-<textarea class="form-control" name="introduction" rows="20">{{ $profiles_form->introduction }}</textarea>
+<textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
 </div>
 </div>
 
-<input type="hidden" name="id" value="{{ $profiles_form->id }}">
+<input type="hidden" name="id" value="{{ $profile_form->id }}">
 {{ csrf_field() }}
 <input type="submit" class="btn btn-primary" value="更新">
 </form>
@@ -52,8 +52,8 @@
     
 <h2>編集履歴</h2>
 <ul class="list-group">
- @if ($profiles_form->profilehistory != NULL)
- @foreach ($profiles_form->profilehistory as $profilehistory)
+ @if ($profile_form->profilehistory != NULL)
+ @foreach ($profile_form->profilehistory as $profilehistory)
 <li class="list-group-item">{{ $profilehistory->edited_at }} </li>
  @endforeach
 @endif
