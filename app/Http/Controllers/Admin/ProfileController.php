@@ -28,13 +28,13 @@ class ProfileController extends Controller
     }
     public function index(Request $request)
   {
-      $cond_title = $request->cond_title;
-      if ($cond_title != '') {
-          $posts = profile::where('title', $cond_title)->get();
+      $cond_title = $request->cond_name;
+      if ($cond_name != '') {
+          $posts = profile::where('name', $cond_name)->get();
       } else {
           $posts = profile::all();
       }
-      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.profile.index', ['posts' => $posts, 'cond_name' => $cond_name]);
   }
       
      public function edit()
@@ -48,22 +48,15 @@ class ProfileController extends Controller
 
     public function update()
     {
-      $this->validate($request, profile::$rules);
-      $profile = profile::find($request->id);
-      
-      $profile_form = $request->all();
-      if (isset($profile_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $profile->image_path = basename($path);
-        unset($profile_form['image']);
-      } elseif (isset($request->remove)) {
-        $profile->image_path = null;
-        unset($profile_form['remove']);
-      }
-      unset($profile_form['_token']);
-      $profile->fill($profile_form)->save();
-      
-        return redirect('admin/profile/edit');
+    $this->validate($request, Profile::$rules);
+        
+        $profiles = Profile::find($request->id); 
+        $profiles_form = $request->all();
+        
+        unset($profiles_form['_token']);
+        
+        $profiles->fill($profiles_form)->save();
+        return redirect('admin/profile/');
     }
     
 public function delete(Request $request)

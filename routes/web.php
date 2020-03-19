@@ -23,11 +23,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 //下記はprofile画面Route情報です。
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('profile/create','Admin\ProfileController@add');
-     Route::get('admin/profile/edit', 'Admin\ProfileController@edit');
+     Route::get('profile/edit', 'Admin\ProfileController@edit');
      Route::get('edit', 'Admin\ProfileController@index');
      Route::post('profile/create','Admin\ProfileController@create');
      Route::post('profile/edit', 'Admin\ProfileController@update');
-     Route::get('news/delete', 'Admin\ProfileController@delete');
 });
 
 Auth::routes();
