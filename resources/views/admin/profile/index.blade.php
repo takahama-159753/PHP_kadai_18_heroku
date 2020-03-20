@@ -9,7 +9,7 @@
 
 <div class="row">
 <div class="col-md-4">
-<a href="{{ action('Admin\ProfileController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+<php artisan serve --port=8080a href="{{ action('Admin\ProfileController@add') }}" role="button" class="btn btn-primary">新規作成</a>
 </div>
 
 <div class="col-md-8">
@@ -44,19 +44,19 @@
 </tr>
 </thead>
 <tbody>
-@foreach($posts as $profiles)
+@foreach($posts as $profile)
 <tr>
-<th>{{ $profiles->id }}</th>
-<td>{{ str_limit($profiles->name, 100) }}</td>
-<td>{{ str_limit($profiles->gender, 100) }}</td>
-<td>{{ str_limit($profiles->hobby, 100) }}</td>
-<td>{{ str_limit($profiles->introduction, 100) }}</td>
+<th>{{ $profile->id }}</th>
+<td>{{ str_limit($profile->name, 100) }}</td>
+<td>{{ str_limit($profile->gender, 100) }}</td>
+<td>{{ str_limit($profile->hobby, 100) }}</td>
+<td>{{ str_limit($profile->introduction, 100) }}</td>
 <td>
 <div>
-<a href="{{ action('Admin\ProfileController@edit', ['id' => $profiles->id]) }}">編集</a>
+<a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
 </div>
 <div>
-<a href="{{ action('Admin\ProfileController@delete', ['id' => $profiles->id]) }}">削除</a>
+<a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
 </div>
 </td>
 </tr>

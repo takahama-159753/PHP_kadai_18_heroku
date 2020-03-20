@@ -50,12 +50,12 @@ class ProfileController extends Controller
     {
     $this->validate($request, Profile::$rules);
         
-        $profiles = Profile::find($request->id); 
-        $profiles_form = $request->all();
+        $profile = Profile::find($request->id); 
+        $profile_form = $request->all();
         
-        unset($profiles_form['_token']);
+        unset($profile_form['_token']);
         
-        $profiles->fill($profiles_form)->save();
+        $profile->fill($profile_form)->save();
         return redirect('admin/profile/');
     }
     
