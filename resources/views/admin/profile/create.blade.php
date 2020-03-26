@@ -1,10 +1,10 @@
 @extends('layouts.profile')
 
-@section('title', '自己紹介画面')
+@section('title', '自己紹介')
 
 @section('content')
-   <div class="container">
-       <div class="row">
+<div class="container">
+<div class="row">
            <div class="col-md-8 mx-auto">
                <h2>自己紹介画面</h2>
                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-date">
