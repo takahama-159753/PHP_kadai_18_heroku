@@ -56,8 +56,10 @@ class ProfileController extends Controller
         $profile_form = $request->all();
         
         unset($profile_form['_token']);
-        
+        unset($profile_form['image']);
+        unset($profile_form['remove']);
         $profile->fill($profile_form)->save();
+        
         $history = profile_History;
         $history->profile_id = $profile->id;
         $history->edited_at = Carbon::now();
